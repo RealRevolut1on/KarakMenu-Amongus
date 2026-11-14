@@ -1,5 +1,5 @@
 <p align="center">
-  <b>**Status: 🟢**</b>
+  <b>Status: 🟢</b>
 </p>
 
 <p align="center">
