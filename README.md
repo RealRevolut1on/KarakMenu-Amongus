@@ -22,22 +22,18 @@
 
 ---
 
-# 📦 Download Versions
-
-| Mod Version | Among Us - Version | Link |
-|-------------|--------------------|------|
-| Beta V1.6 | 2026.9.29 | [Download](https://github.com/RealRevolut1on/KarakMenu-Amongus/releases/latest) |
-
-> **Note:** the release is a single `KarakMenu.dll`. You still need BepInEx installed — see below.
 
 # 🔧 Installation Guide
 
 ## 🪟 Windows Setup
 
-1. Run among us normally and go into task manager, look at among us, if it says "Among Us (32-bit)" then download and extract 
-
+1. What to download and extract
+   - Run Among Us normally and go into task manager, look at Among Us, if it says `Among Us (32-bit)` then download and extract the one that says x86
+   - However, if it says just `Among Us`, then download and extract the one that says x64
+2. Put the contents of the BepInEx folder right next to the Among Us.exe file
 Your folder should end up looking like this:
 
+(`KarakMenu.cfg` might not exist before first start)
 ```
 Among Us/
 ├─ Among Us.exe
@@ -46,10 +42,13 @@ Among Us/
 └─ BepInEx/
    ├─ core/
    ├─ config/
-   │  └─ KarakMenu.cfg
+   │  └─ KarakMenu.cfg 
    └─ plugins/
       └─ KarakMenu.dll
 ```
+
+3. Go to [🎮 Using the Menu](#-using-the-menu)
+4. Have fun :)
 
 ## 🐧 Linux / SteamOS
 
