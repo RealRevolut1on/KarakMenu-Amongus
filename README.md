@@ -1,4 +1,6 @@
-Status: 🟢
+<p align="center">
+  <b>**Status: 🟢**</b>
+</p>
 
 <p align="center">
   <b>A custom Among Us mod menu with a hand-built GUI, deep game hooks and a built-in anticheat for all lobbies.</b>
