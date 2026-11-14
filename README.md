@@ -1,14 +1,7 @@
-<p align="center">
-  <a href="https://github.com/RealRevolut1on/KarakMenu-Amongus/releases/latest">
-    <img hspace="6" src="https://img.shields.io/badge/Download-Latest-2ea44f?style=flat&logo=github" alt="Download">
-  </a>
-  <img hspace="6" src="https://img.shields.io/badge/Among%20Us-2026.9.29-blue?style=flat" alt="Among Us 2026.9.29">
-  <img hspace="6" src="https://img.shields.io/badge/BepInEx-6%20IL2CPP-purple?style=flat" alt="BepInEx 6 IL2CPP">
-  <img hspace="6" src="https://img.shields.io/badge/License-GPL--3.0-orange?style=flat" alt="GPL-3.0">
-</p>
+Status: 🟢
 
 <p align="center">
-  <b>A custom Among Us mod menu with a hand-built GUI, deep game hooks and a built-in anticheat for the lobbies you host.</b>
+  <b>A custom Among Us mod menu with a hand-built GUI, deep game hooks and a built-in anticheat for all lobbies.</b>
 </p>
 
 <!-- omit in toc -->
