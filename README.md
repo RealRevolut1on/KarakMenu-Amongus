@@ -34,24 +34,7 @@
 
 ## 🪟 Windows Setup
 
-1. Install **BepInEx 6 (IL2CPP, x86 for itch.io but x64 for every other launcher)** into your Among Us folder. (Ignore this step if you already installed it before)
-   - Grab the latest `BepInEx-Unity.IL2CPP-win-x64` build from [BepInEx bleeding edge](https://builds.bepinex.dev/projects/bepinex_be).
-   - Extract the **contents** of the zip straight into your Among Us folder (next to `Among Us.exe`).
-
-2. Launch Among Us once, then close it.
-   - BepInEx creates `BepInEx\plugins`, `BepInEx\config` and `BepInEx\core` on first run.
-   - If no console window appeared, BepInEx isn't installed correctly — fix that before continuing.
-
-3. Drop **`KarakMenu.dll`** into `BepInEx\plugins\`.
-
-4. Launch Among Us and press **DELETE** to open the menu.
-
-Where to find your game folder:
-
-- **Steam:** right-click Among Us → `Manage` → `Browse local files`
-- **Epic Games:** right-click Among Us → `Manage` → folder icon in the `Installation` box
-- **itch.io:** open the itch app → right-click Among Us → `Manage` → `Open folder in Explorer`
-- **Microsoft Store / Xbox App:** right-click Among Us → `Manage` → `FILES` tab → `BROWSE...`
+1. Run among us normally and go into task manager, look at among us, if it says "Among Us (32-bit)" then download and extract 
 
 Your folder should end up looking like this:
 
