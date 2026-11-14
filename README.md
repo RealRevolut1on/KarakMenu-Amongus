@@ -24,31 +24,68 @@
 
 
 # 🔧 Installation Guide
-
+Btw this most likely doesn't work on cracked Among Us, you can try if you want. (Just pay the devs $5 man)
 ## 🪟 Windows Setup
 
-1. What to download and extract
-   - Run Among Us normally and go into task manager, look at Among Us, if it says `Among Us (32-bit)` then download and extract the one that says x86
-   - However, if it says just `Among Us`, then download and extract the one that says x64
-2. Put the contents of the BepInEx folder right next to the Among Us.exe file
-Your folder should end up looking like this:
+1. **What to download and extract**
+   - Run Among Us normally and open Task Manager (`Ctrl + Shift + Esc`).
+   - Find Among Us in the process list:
+     - If it says `Among Us (32-bit)`, download the **x86** version of BepInEx.
+     - If it says just `Among Us`, download the **x64** version of BepInEx.
+   - Close Among Us completely before continuing.
 
-(`KarakMenu.cfg` might not exist before first start)
-```
-Among Us/
-├─ Among Us.exe
-├─ winhttp.dll
-├─ doorstop_config.ini
-└─ BepInEx/
-   ├─ core/
-   ├─ config/
-   │  └─ KarakMenu.cfg 
-   └─ plugins/
-      └─ KarakMenu.dll
-```
+2. **How to find your Among Us folder:**
 
-3. Go to [🎮 Using the Menu](#-using-the-menu)
-4. Have fun :)
+   - **Steam:**
+     1. Go to your Steam Library.
+     2. Right-click Among Us in the left sidebar.
+     3. Go to `Manage` → `Browse local files`.
+
+   - **Epic Games:**
+     1. Go to your Library.
+     2. Click the three dots on Among Us and select `Manage`.
+     3. Click the small folder icon next to `Installation`.
+
+   - **itch.io:**
+     1. Open the itch.io app.
+     2. Right-click Among Us in your Library.
+     3. Select `Manage` → `Open folder in Explorer`.
+     4. Open the `AmongUsItch/Itch` folder.
+
+   - **Xbox App / Microsoft Store:**
+     1. Open the Xbox app.
+     2. Find Among Us in your Library.
+     3. Right-click it and select `Manage`.
+     4. Go to the `Files` tab.
+     5. Click `Browse...`.
+     6. Open the `Among Us/Content` folder.
+
+3. **Installing BepInEx:**
+
+   Extract the contents of the downloaded BepInEx ZIP directly into the folder containing `Among Us.exe`.
+
+   Your folder should end up looking like this:
+
+   ( `KarakMenu.cfg` may or may not exist before the first launch.)
+
+   ```
+   Among Us/
+   ├─ Among Us.exe
+   ├─ winhttp.dll
+   ├─ doorstop_config.ini
+   └─ BepInEx/
+      ├─ core/
+      ├─ config/
+      │  └─ KarakMenu.cfg
+      └─ plugins/
+         └─ KarakMenu.dll
+   ```
+
+4. Go to [🎮 Using the Menu](#-using-the-menu).
+
+5. **(Optional but recommended)** Install [HydraMenu](https://github.com/MrDiamond64/Hydra). Download the `.dll` file from its latest release and place it inside the `plugins` folder (alongside `KarakMenu.dll`). You can then use the `INS` key to open HydraMenu.
+
+6. Have fun! :)
 
 ## 🐧 Linux / SteamOS
 
