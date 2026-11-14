@@ -1,8 +1,4 @@
 <p align="center">
-  <img src="src/Assets/karakmenu_logo.png" width="760" alt="KarakMenu">
-</p>
-
-<p align="center">
   <a href="https://github.com/RealRevolut1on/KarakMenu-Amongus/releases/latest">
     <img hspace="6" src="https://img.shields.io/badge/Download-Latest-2ea44f?style=flat&logo=github" alt="Download">
   </a>
@@ -35,9 +31,7 @@
 
 | Mod Version | Among Us - Version | Link |
 |-------------|--------------------|------|
-| v3.2.0 | 2026.9.29 | [Download](https://github.com/RealRevolut1on/KarakMenu-Amongus/releases/latest) |
-
-KarakMenu also loads on the older `2026.6.5` and `2026.3.31` builds, but only the version in the table above is actively tested. Running a newer Among Us build than the one listed will trigger an in-game warning.
+| Beta V1.6 | 2026.9.29 | [Download](https://github.com/RealRevolut1on/KarakMenu-Amongus/releases/latest) |
 
 > **Note:** the release is a single `KarakMenu.dll`. You still need BepInEx installed — see below.
 
@@ -45,7 +39,7 @@ KarakMenu also loads on the older `2026.6.5` and `2026.3.31` builds, but only th
 
 ## 🪟 Windows Setup
 
-1. Install **BepInEx 6 (IL2CPP, x64)** into your Among Us folder.
+1. Install **BepInEx 6 (IL2CPP, x86 for itch.io but x64 for every other launcher)** into your Among Us folder. (Ignore this step if you already installed it before)
    - Grab the latest `BepInEx-Unity.IL2CPP-win-x64` build from [BepInEx bleeding edge](https://builds.bepinex.dev/projects/bepinex_be).
    - Extract the **contents** of the zip straight into your Among Us folder (next to `Among Us.exe`).
 
@@ -114,7 +108,7 @@ For the complete, up-to-date list, see [FEATURES.md](FEATURES.md).
 
 # 🎮 Using the Menu
 
-- **DELETE** opens and closes the menu — rebind it in `BepInEx\config\KarakMenu.cfg` (`GUI.Keybind`) or from the in-game Keybinds tab.
+- **DELETE** opens and closes the menu — rebind it in the game at `System --> Keyinds`
 - The menu is split into categories on the left and tabs on the top of each category.
 - Every toggle can be bound to a hotkey from the **Keybinds** tab, and the whole profile can be saved/loaded.
 - **Passive** features stay on by default on purpose — turning them off is what usually causes disconnects and missing cosmetics.
