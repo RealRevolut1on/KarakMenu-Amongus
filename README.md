@@ -164,9 +164,9 @@ Check, in order:
 
 <summary><h2>❗ My game version is newer than the supported one</h2></summary>
 
-Among Us updates break IL2CPP offsets, so KarakMenu only supports the build listed in [Download Versions](#-download-versions). If the game updated, either:
+Among Us updates break IL2CPP offsets, so KarakMenu only supports the build listed in [📦 Download KarakMenu](https://github.com/RealRevolut1on/KarakMenu/releases). If the game updated, either:
 
-- wait for a KarakMenu release for the new build, or
+- wait for a KarakMenu release for the new build, or:
 - downgrade Among Us to a supported build.
 
 Running a mismatched build usually starts fine and then misbehaves (dead buttons, broken tabs, odd crashes) instead of failing cleanly.
