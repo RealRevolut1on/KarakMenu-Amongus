@@ -22,7 +22,7 @@
 
 ---
 
-
+<a id="installation-guide"></a>
 # 🔧 Installation Guide
 Btw this most likely doesn't work on cracked Among Us, you can try if you want. (Just pay the devs $5 man)
 ## 🪟 Windows Setup
