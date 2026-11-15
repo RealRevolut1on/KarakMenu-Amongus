@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <b>A custom Among Us mod menu with a hand-built GUI, deep game hooks and a built-in anticheat for all lobbies.</b>
+  <b>A custom Among Us mod menu with a GUI, deep game hooks and a built-in anticheat for all lobbies.</b>
 </p>
 
 <!-- omit in toc -->
@@ -215,8 +215,22 @@ Fork the repo, make your changes in a branch, and open a pull request with a sho
 
 ---
 
-# ⚠️ Disclaimer
+## ⚠️ Disclaimer & Responsible Use
+
+**KarakMenu is an unofficial, community-made Among Us modification.**
+
+This project is intended to help players organize, configure, and manage private Among Us events.
+
+### Responsible Use
+
+- Only use gameplay-changing features in lobbies where all participants have been informed and consent to their use.
+- Do not use this mod to cheat, exploit, grief, harass, or intentionally disrupt other players' experiences.
+- Do not use features to gain an unfair advantage in public matchmaking or interfere with unsuspecting players.
+- Follow the official [Among Us Code of Conduct](https://www.innersloth.com/code-of-conduct/) and [Mod Policy](https://www.innersloth.com/among-us-mod-policy/).
+- Any gameplay-changing functionality used on official servers must comply with Innersloth's mod registration requirements.
+
+**Unofficial Project Notice**
 
 This mod is not affiliated with Among Us or Innersloth LLC, and the content contained therein is not endorsed or otherwise sponsored by Innersloth LLC. Portions of the materials contained herein are property of Innersloth LLC. © Innersloth LLC.
 
-This mod is not intended to be used in any manner that interferes with Innersloth's services, Innersloth's operation of Among Us, the integrity or availability of the game, or the normal gameplay experience of other players. The creator does not endorse, encourage, or condone using this mod to disrupt games, negatively affect other users, bypass rules or protections, or gain an unfair advantage in any setting where such use is prohibited. Any misuse is solely the responsibility of the user. Usage of this mod can violate the terms of service of Among Us, which may lead to punitive action. The creator is not responsible for any consequences you may face due to usage. Use at your own risk.
+Users are responsible for how they use this software. This disclaimer does not grant permission to violate Innersloth's policies or override any applicable rules.
