@@ -323,16 +323,46 @@ public static class KarakESP
     // ---------- See Cooldown (ESP) ----------
     // There is no network message carrying another player's kill timer, so a
     // remote impostor's cooldown can only be reconstructed: everyone starts a
-    // round on a full cooldown, and every MurderPlayer we see resets that
-    // killer's clock. KillCooldown itself is read live from the game options,
-    // so host changes and "no kill cooldown" settings are picked up.
+    // round on a full cooldown, every MurderPlayer we see resets that killer's
+    // clock, and a meeting resets every killer's clock once gameplay resumes.
+    // KillCooldown itself is read live from the game options, so host changes
+    // and "no kill cooldown" settings are picked up.
     private static readonly System.Collections.Generic.Dictionary<int, float> _lastKillTime = new();
     private static float _roundStartTime;
+
+    // Set when a meeting closes. The actual reset has to wait until the
+    // ejection cutscene finishes and gameplay actually resumes, because that's
+    // when Among Us restarts every impostor's kill timer.
+    private static bool _meetingResetPending;
+    private static float _meetingEndedAt;
 
     public static void ResetKillCooldownTracking()
     {
         _lastKillTime.Clear();
         _roundStartTime = Time.time;
+    }
+
+    public static void MarkMeetingEnded()
+    {
+        _meetingResetPending = true;
+        _meetingEndedAt = Time.time;
+    }
+
+    // Called once per frame. Applies the pending post-meeting reset as soon as
+    // the meeting HUD is gone and the local player can move again (i.e. the
+    // cutscene is over), with a hard fallback in case CanMove never flips.
+    public static void TickCooldownTracking()
+    {
+        if (!_meetingResetPending) return;
+
+        bool inMeeting = MeetingHud.Instance != null;
+        bool canMove = PlayerControl.LocalPlayer == null || PlayerControl.LocalPlayer.CanMove;
+
+        if ((!inMeeting && canMove) || Time.time - _meetingEndedAt > 10f)
+        {
+            _meetingResetPending = false;
+            ResetKillCooldownTracking();
+        }
     }
 
     public static void RecordKill(PlayerControl killer)

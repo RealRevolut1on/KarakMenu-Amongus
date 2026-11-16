@@ -29,6 +29,7 @@ public static class PlayerPhysics_LateUpdate
         // OverloadHandler.Run() gate below was already doing for one call.
         if (!__instance.AmOwner) return;
 
+        KarakESP.TickCooldownTracking();
         KarakCheats.NoClipCheat();
         KarakCheats.ProtectCheat();
         KarakImmortality.Tick();

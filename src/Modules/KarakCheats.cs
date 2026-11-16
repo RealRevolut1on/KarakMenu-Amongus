@@ -325,7 +325,13 @@ public static class KarakCheats
     public static void TeleportCursorCheat()
     {
         if (!CheatToggles.teleportCursor) return;
-        if (!Utils.isShip || Utils.isMeeting) return;
+
+        // Works in the lobby too: RpcSnapTo is a normal net transform RPC and
+        // the lobby is still a networked scene, so the only thing that used to
+        // block this was the isShip gate. Skip meetings and the ejection
+        // cutscene, where a snap would fight the game's own positioning.
+        if (!Utils.isShip && !Utils.isLobby) return;
+        if (Utils.isMeeting || Utils.isExiling) return;
         if (PlayerControl.LocalPlayer?.NetTransform == null || Camera.main == null) return;
 
         if (Input.GetMouseButtonDown(1))

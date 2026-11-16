@@ -1,4 +1,4 @@
-﻿using HarmonyLib;
+using HarmonyLib;
 using System.Collections.Generic;
 using System.Linq;
 using Object = UnityEngine.Object;
@@ -151,5 +151,19 @@ public static class MeetingHud_CheckForEndVoting
         __instance.RpcVotingComplete(states, exiled, tie, false, 0);
 
         return false;
+    }
+}
+
+[HarmonyPatch(typeof(MeetingHud), nameof(MeetingHud.Close))]
+public static class MeetingHud_Close
+{
+    // Postfix patch of MeetingHud.Close.
+    // Among Us restarts every impostor's kill cooldown at the full value when a
+    // meeting ends, so the See Cooldown tracker has to restart its clocks at the
+    // same moment. Without this the estimate keeps counting from the last kill
+    // (or from round start) and shows "Ready" the instant the meeting closes.
+    public static void Postfix()
+    {
+        KarakESP.MarkMeetingEnded();
     }
 }
