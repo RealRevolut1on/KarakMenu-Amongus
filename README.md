@@ -22,6 +22,18 @@
 
 ---
 
+# 📦 Download Versions
+
+| KarakMenu Version | Among Us Version | Release |
+|-------------------|------------------|---------|
+| **v1.0.1-19** | **19** (`2026.9.29`) | [Download](https://github.com/RealRevolut1on/KarakMenu-Amongus/releases/latest) |
+
+Version naming: `v<mod>.<patch>-<Among Us version>`.
+
+- `1` — KarakMenu generation. When the patch number reaches 10 it resets to `0` and this goes up by one.
+- `.0` — patch level. Bumped for bug fixes and minor changes.
+- `-19` — the Among Us build this release targets (19 = `2026.9.29`).
+
 <a id="installation-guide"></a>
 # 🔧 Installation Guide
 Btw this most likely doesn't work on cracked Among Us, you can try if you want. (Just pay the devs $5 man)
