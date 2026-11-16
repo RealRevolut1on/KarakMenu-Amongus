@@ -381,8 +381,45 @@ public static class Anticheat
         if (HideKickReason) reason = "Unauthorized action detected.";
         string who = player?.Data?.PlayerName;
         string prefix = string.IsNullOrEmpty(who) ? "" : $"{who}: ";
-        HudManager.Instance?.Notifier?.AddDisconnectMessage($"<color=#4f92ff><b>[KarakMenu Anti-Cheat]</b></color> {prefix}{reason}");
+        string message = $"<color=#4f92ff><b>[KarakMenu Anti-Cheat]</b></color> {prefix}{reason}";
+
+        // A noisy check can fire every single frame (e.g. a client spamming
+        // SetLevel), which used to stack dozens of identical notifier lines on
+        // screen. Collapse repeats of the same detection onto one message per
+        // 5 seconds and report how many were swallowed in the meantime.
+        string key = (player?.OwnerId ?? -1) + "|"
+            + System.Text.RegularExpressions.Regex.Replace(reason, "\\d+", "#");
+
+        float last;
+        _notifyLastSent.TryGetValue(key, out last);
+        if (Time.time - last < NotifyThrottleSeconds)
+        {
+            _notifySuppressed.TryGetValue(key, out int hidden);
+            _notifySuppressed[key] = hidden + 1;
+            return;
+        }
+
+        _notifyLastSent[key] = Time.time;
+        if (_notifySuppressed.TryGetValue(key, out int count) && count > 0)
+        {
+            _notifySuppressed.Remove(key);
+            message += $" <color=#9db4d6>(+{count} more)</color>";
+        }
+
+        // Keep the tables from growing for the whole session when a lobby keeps
+        // inventing new reasons (levels, task ids, ...).
+        if (_notifyLastSent.Count > 256)
+        {
+            _notifyLastSent.Clear();
+            _notifySuppressed.Clear();
+        }
+
+        HudManager.Instance?.Notifier?.AddDisconnectMessage(message);
     }
+
+    private const float NotifyThrottleSeconds = 5f;
+    private static readonly Dictionary<string, float> _notifyLastSent = new();
+    private static readonly Dictionary<string, int> _notifySuppressed = new();
 
     // -----------------------------------------------------------------------
     // Helpers
