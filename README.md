@@ -26,7 +26,7 @@
 
 | KarakMenu Version | Among Us Version | Release |
 |-------------------|------------------|---------|
-| **v1.0.1-19** | **19** (`2026.9.29`) | [Download](https://github.com/RealRevolut1on/KarakMenu-Amongus/releases/latest) |
+| **v1.0.2-19** | **19** (`2026.9.29`) | [Download](https://github.com/RealRevolut1on/KarakMenu-Amongus/releases/latest) |
 
 Version naming: `v<mod>.<patch>-<Among Us version>`.
 
