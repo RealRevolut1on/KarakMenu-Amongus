@@ -422,6 +422,36 @@ public static class Anticheat
     private static readonly Dictionary<string, int> _notifySuppressed = new();
 
     // -----------------------------------------------------------------------
+    // RPC sender tracking
+    //
+    // Doors and sabotages are sent on the ShipStatus net object, and that RPC
+    // payload only names a player for UpdateSystem - CloseDoorsOfType carries
+    // no sender at all, and the player UpdateSystem names is attacker
+    // controlled. The host is the only side that can verify this, and
+    // InnerNetServer is the only place that knows which client a packet came
+    // from, so the sender is stashed for the duration of the message and the
+    // ShipStatus checks read it back.
+    // -----------------------------------------------------------------------
+    private static PlayerControl _currentSender;
+
+    public static PlayerControl CurrentSender => _currentSender;
+
+    public static void SetCurrentSender(InnerNetServer.Player client)
+    {
+        _currentSender = null;
+        if (client == null || AmongUsClient.Instance == null || !AmongUsClient.Instance.AmHost) return;
+        try
+        {
+            int clientId = client.Id;
+            foreach (PlayerControl candidate in PlayerControl.AllPlayerControls)
+                if (candidate != null && candidate.OwnerId == clientId) { _currentSender = candidate; return; }
+        }
+        catch { _currentSender = null; }
+    }
+
+    public static void ClearCurrentSender() => _currentSender = null;
+
+    // -----------------------------------------------------------------------
     // Helpers
     // -----------------------------------------------------------------------
     private static TaskState GetState(PlayerControl player) { if (!PlayerStates.TryGetValue(player.OwnerId, out var state)) PlayerStates[player.OwnerId] = state = new TaskState(); return state; }
@@ -468,5 +498,15 @@ public static class Anticheat
     {
         private static bool Prefix(byte callId, MessageReader reader)
             => HandleRpc(typeof(ShipStatus), null, (RpcCalls)callId, reader);
+    }
+
+    // Every packet a client sends the host passes through here, so this is the
+    // only spot that can attribute a ShipStatus RPC to a player.
+    [HarmonyPatch(typeof(InnerNetServer), "HandleMessage")]
+    private static class InnerNetServerMessagePatch
+    {
+        private static void Prefix(InnerNetServer.Player __0) => SetCurrentSender(__0);
+
+        private static void Finalizer() => ClearCurrentSender();
     }
 }

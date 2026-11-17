@@ -3,6 +3,7 @@ using Hazel;
 using InnerNet;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace KarakMenu.AC;
 
@@ -437,12 +438,46 @@ internal class AddVote : RpcCheck
 
 internal class CloseDoorsOfType : RpcCheck
 {
-    // The sender can't be identified for this RPC, hence the player-less Flag.
+    private static float _lastUnknownSenderLog = -999f;
+
+    // The RPC payload never names the sender (the host only learns it from the
+    // packet itself), so the sender comes from Anticheat.CurrentSender.
     public override bool Validate(PlayerControl player, MessageReader reader)
     {
         if (GameManager.Instance.IsHideAndSeek())
         {
             Anticheat.Flag("Someone attempted to close doors while in Hide and Seek.");
+            return false;
+        }
+
+        PlayerControl sender = Anticheat.CurrentSender;
+
+        // Unknown sender (the host closed them itself, or we are not the host):
+        // nothing to attribute, so let it through. Log it occasionally so a
+        // broken sender tracker is visible in the BepInEx console instead of
+        // silently never flagging anything.
+        if (sender == null)
+        {
+            if (AmongUsClient.Instance != null && AmongUsClient.Instance.AmHost && Time.time - _lastUnknownSenderLog > 10f)
+            {
+                _lastUnknownSenderLog = Time.time;
+                KarakMenu.Log.LogInfo("Doors were closed but the sending client could not be identified.");
+            }
+
+            return true;
+        }
+
+        if (sender == PlayerControl.LocalPlayer || sender.Data == null) return true;
+
+        if (!RoleManager.IsImpostorRole(sender.Data.RoleType))
+        {
+            Anticheat.Flag(sender, $"{sender.Data.PlayerName} closed doors while their role ({sender.Data.RoleType}) is not an impostor.");
+            return false;
+        }
+
+        if (sender.Data.IsDead)
+        {
+            Anticheat.Flag(sender, $"{sender.Data.PlayerName} closed doors while dead.");
             return false;
         }
 
@@ -631,7 +666,18 @@ internal class UpdateSystem : RpcCheck
 
         if (!RoleManager.IsImpostorRole(player.Data.RoleType))
         {
-            Anticheat.Flag(player, $"{player.Data.PlayerName} attempted to sabotage {system} when they are not an imposter.");
+            Anticheat.Flag(player, $"{player.Data.PlayerName} attempted to sabotage {system} when they are not an impostor.");
+            return false;
+        }
+
+        // The player named in the payload is attacker controlled, so a menu can
+        // blame an impostor while sabotaging from a crewmate client. Compare it
+        // with the client the packet actually came from.
+        PlayerControl sender = Anticheat.CurrentSender;
+        if (sender != null && sender != player && sender != PlayerControl.LocalPlayer && sender.Data != null
+            && !RoleManager.IsImpostorRole(sender.Data.RoleType))
+        {
+            Anticheat.Flag(sender, $"{sender.Data.PlayerName} attempted to sabotage {system} from a non-impostor client.");
             return false;
         }
 
