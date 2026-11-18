@@ -78,9 +78,9 @@ public class RolesTab : ITab
         // Same switch as Ship -> Vents -> Unlock Vents: it shows the impostor
         // vent button for any living role and lets Vent.CanUse approve it.
         CheatToggles.unlockVents = KarakUI.Toggle(CheatToggles.unlockVents, "Allow Vent As Any Role");
+        GUILayout.Label("<color=#9db4d6>Also under Ship > Vents > Unlock Vents.</color>", GUIStylePreset.Label);
         CheatToggles.endlessVentTime = KarakUI.Toggle(CheatToggles.endlessVentTime, "Endless Vent Time");
         CheatToggles.noVentCooldown = KarakUI.Toggle(CheatToggles.noVentCooldown, "No Vent Cooldown");
-        GUILayout.Label("<color=#9db4d6>Also under Ship > Vents > Unlock Vents.</color>", GUIStylePreset.Label);
         KarakUI.EndSection();
     }
 

@@ -4,7 +4,7 @@
         <LangVersion>latest</LangVersion>
         <DebugType>embedded</DebugType>
 
-        <VersionPrefix>1.1.0</VersionPrefix>
+        <VersionPrefix>1.0.3</VersionPrefix>
         <AssemblyName>KarakMenu</AssemblyName>
         <RootNamespace>KarakMenu</RootNamespace>
         <Description>KarakMenu - an Among Us mod menu</Description>
