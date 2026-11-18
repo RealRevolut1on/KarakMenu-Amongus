@@ -107,6 +107,7 @@ KarakMenu's ESP features are completely client-side, and thus undetectable by an
 
 | Feature | Description | Type | Default |
 |------------|-------------|------|----|
+| Allow Vent As Any Role | Shows the vent button for any living role and lets you use vents like an engineer<br>(same switch as Ship > Vents > Unlock Vents) | Toggle | Off |
 | Endless Vent Time | Allows you to remain inside a vent forever despite being an engineer | Toggle | Off |
 | No Vent Cooldown | Removes the cooldown period after coming out of a vent | Toggle | Off |
 

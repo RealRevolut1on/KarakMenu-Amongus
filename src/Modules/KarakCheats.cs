@@ -206,15 +206,15 @@ public static class KarakCheats
         // try-catch to prevent errors when role is null
         try
         {
+            if (!Utils.isShip) return;
 
-			// Engineers & Impostors don't need this cheat so it is disabled for them
-			// Ghost venting causes issues so it is also disabled
-
-			if (!PlayerControl.LocalPlayer.Data.Role.CanVent && !PlayerControl.LocalPlayer.Data.IsDead)
+            // Engineers & impostors already have the vent button, so only other
+            // roles are touched. Ghost venting breaks the vent state, so it is
+            // left alone too.
+            if (!PlayerControl.LocalPlayer.Data.Role.CanVent && !PlayerControl.LocalPlayer.Data.IsDead)
             {
-				hudManager.ImpostorVentButton.gameObject.SetActive(CheatToggles.unlockVents);
-			}
-
+                hudManager.ImpostorVentButton.gameObject.SetActive(CheatToggles.unlockVents);
+            }
         } catch { }
     }
 
