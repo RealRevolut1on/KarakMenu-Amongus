@@ -227,6 +227,32 @@ Fork the repo, make your changes in a branch, and open a pull request with a sho
 
 ---
 
+# 📄 License
+
+KarakMenu is released under the **[PolyForm Noncommercial License 1.0.0](https://polyformproject.org/licenses/noncommercial/1.0.0)** — the full text is in [LICENSE](LICENSE). In short: it is **source-available, not open source**, and it is free to use only for noncommercial purposes.
+
+**Allowed, at no cost**
+
+- Playing with it in private lobbies with friends, and recording or streaming it noncommercially
+- Personal study, tinkering, research and testing
+- Reading, modifying, rebuilding, and sharing the source or the compiled menu
+- Use by charities, schools, public research, public safety or health, environmental, and government organizations
+
+**Not allowed**
+
+- Selling KarakMenu, its binaries, the source, or anything built from them
+- Bundling it into a paid product or service, or into any commercial offering
+- Distributing it behind a paywall, subscription, ad-gated download, or as a paid "premium" build
+- Any use with an anticipated commercial application
+
+**If you redistribute it** — original or modified — you must pass on the license (or its URL) together with this notice, so whoever receives it knows their rights:
+
+> Required Notice: Copyright RealRevolut1on (https://github.com/RealRevolut1on/KarakMenu-Amongus)
+
+The noncommercial restriction carries over to forks and new works, so a modified version cannot be relicensed commercially. Builds published before this change (up to and including `v1.0.3-19`) were released under GPL-3.0 and remain available under those terms.
+
+---
+
 ## ⚠️ Disclaimer & Responsible Use
 
 **KarakMenu is an unofficial, community-made Among Us modification.**
